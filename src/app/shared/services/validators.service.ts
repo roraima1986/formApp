@@ -6,10 +6,13 @@ import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 })
 export class ValidatorsService {
 
+  // Validacion para name
   public firstNameAndLastnamePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
 
+  // Validacion para email
   public emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
+  // Validacion para strider??
   public cantBeStrider = (control:FormControl): ValidationErrors | null => {
     const value: string = control.value.trim().toLowerCase();
 
@@ -22,6 +25,7 @@ export class ValidatorsService {
     return null;
   }
 
+  // Validacion para campos del formulario
   public isValidField(form: FormGroup, field: string){
     return form.controls[field].errors && form.controls[field].touched;
   }
