@@ -20,11 +20,14 @@ export class EmailValidatorService implements AsyncValidator {
 
       subscriber.next(null);
       subscriber.complete();
-    });
+    }).pipe(
+      delay(3000)
+    );
 
     return httpCallObservable;
 
   }
+
 
   /*validate(control: AbstractControl): Observable<ValidationErrors | null>{
     const email = control.value;
